@@ -1,14 +1,25 @@
+import {formatISO9075} from "date-fns";
+import {Link} from "react-router-dom";
 
+export default function Post({_id,title,summary,cover,content,createdAt,author}) {
 
-export default function Post(){
-   return (
-      <div className='post'>
-<div className="image">
-   <img src="https://images.unsplash.com/photo-1691962898718-4dfecbf3c0f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="" /></div>
-   <div className="texts">
-   <h2>mother nature at its best</h2>
-   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-   </div>
-</div>
-      )
+  return (
+    <div className="post">
+      <div className="image">
+        <Link to={`/post/${_id}`}>
+          <img src={'http://localhost:9000/'+cover} alt=""/>
+        </Link>
+      </div>
+      <div className="texts">
+        <Link to={`/post/${_id}`}>
+        <h2>{title}</h2>
+        </Link>
+        <p className="info">
+          <button className="author">{author.username}</button>
+          <time>{formatISO9075(new Date(createdAt))}</time>
+        </p>
+        <p className="summary">{summary}</p>
+      </div>
+    </div>
+  );
 }
