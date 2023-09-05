@@ -22,10 +22,26 @@ export default function Editor({value,onChange}) {
       theme={'snow'}
       onChange={onChange}
       modules={modules} /> */}
-        <textarea type= 'textarea' 
-      value={value}
+        
+        
+        
+        
+        {/* <textarea 
+      // value={value.content}
+      // onChange={onChange}
+      // >
+
+      </textarea> */}
+
+
+
+      <textarea
+        rows={3}
+        value={value}
       onChange={onChange}
-      ></textarea>
+      />
+
+
 
     </div>
   );
